@@ -87,11 +87,14 @@ export default function App() {
       </header>
 
       <section className="hero">
-        <p className="hero-eyebrow">Kerala · Doorstep delivery · COD available</p>
-        <h1 className="hero-title">See everything.<br/>Protect what matters.</h1>
-        <p className="hero-desc">Ready-to-install CCTV kits and components, shipped across Kerala. Pick a complete kit or build your own setup.</p>
+        <div className="hero-inner">
+          <p className="hero-eyebrow">Kerala · Doorstep delivery · COD available</p>
+          <h1 className="hero-title">See everything.<br/>Protect what matters.</h1>
+          <p className="hero-desc">Ready-to-install CCTV kits and components, shipped across Kerala. Pick a complete kit or build your own setup.</p>
+        </div>
       </section>
 
+      <div className="shell">
       <nav className="filters">
         <div className="view-tabs">
           <button className={view === 'all' ? 'active' : ''} onClick={() => { setView('all'); setActiveCat(null) }}>All</button>
@@ -114,6 +117,7 @@ export default function App() {
           <div className="grid">{items.map(item => (<ItemCard key={item._type + item.id} item={item} onAdd={addToCart} />))}</div>
         )}
       </main>
+      </div>
 
       <footer className="footer">
         <div className="foot-brand">MINARVA</div>
