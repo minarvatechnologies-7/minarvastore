@@ -1,1 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { min-height: 100%; }
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  background: #fff;
+  color: #1f2937;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+:focus-visible { outline: 2px solid #1f2937; outline-offset: 2px; }
