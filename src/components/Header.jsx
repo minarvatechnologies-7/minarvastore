@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { useCart } from '../context/CartContext'
 import { formatMoney } from '../lib/money'
 
-export const PHONE = '+91 70000 00000' // TODO: replace with India contact number
+export const PHONE = '+91 62353 53732'
 
 export default function Header({ categories, activeCat, setActiveCat, search, setSearch }) {
   const { count, total, setDrawerOpen } = useCart()

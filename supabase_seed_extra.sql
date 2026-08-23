@@ -1,7 +1,9 @@
--- Extra sample catalogue for Minarva Store (safe to re-run; uses ON CONFLICT where possible)
--- Run in Supabase SQL Editor after schema + migration.
+-- ============================================================
+-- Minarva Store — extra catalogue seed
+-- Run once in Supabase Dashboard → SQL Editor → Run
+-- Safe: uses ON CONFLICT (slug) DO NOTHING
+-- ============================================================
 
--- More packages
 insert into packages
   (name, slug, description, category_id, price, mrp, camera_count, dvr_type, storage, cable_length, highlights, weight_grams, featured, is_active, stock_status)
 values
@@ -22,10 +24,15 @@ values
    (select id from categories where slug='office-kits'),
    28999, 39999, 4, '4CH NVR', '2TB HDD', 'POE',
    array['4 x 4MP IP Cameras','4 Channel NVR','2TB Storage','PoE switch','Remote access'],
-   5500, false, true, 'in_stock')
+   5500, false, true, 'in_stock'),
+  ('2 Camera Shop Starter', '2-camera-shop-starter',
+   'Affordable 2-camera kit for small shops and counters.',
+   (select id from categories where slug='shop-kits'),
+   9999, 14999, 2, '4CH DVR', '500GB HDD', '40m',
+   array['2 x 2MP Cameras','4CH DVR','500GB HDD','Cables included'],
+   2800, false, true, 'in_stock')
 on conflict (slug) do nothing;
 
--- More products
 insert into products
   (name, slug, description, category_id, brand, price, mrp, specs, weight_grams, featured, is_active, stock_status)
 values
@@ -70,5 +77,16 @@ values
    (select id from categories where slug='accessories'),
    'Generic', 699, 999,
    '{"output":"12V 5A","channels":"4-8","warranty":"6 months"}'::jsonb,
-   600, false, true, 'in_stock')
+   600, false, true, 'in_stock'),
+  ('2MP HD Dome Camera', '2mp-hd-dome-camera-v2',
+   'Indoor 2MP HD dome with night vision — popular upgrade option.',
+   (select id from categories where slug='cameras'),
+   'Minarva', 1399, 1899,
+   '{"resolution":"2MP","type":"Dome","night_vision":"20m","warranty":"1 year"}'::jsonb,
+   400, false, true, 'in_stock')
 on conflict (slug) do nothing;
+
+-- Quick check
+select 'packages' as t, count(*) from packages where is_active
+union all
+select 'products', count(*) from products where is_active;

@@ -1,4 +1,4 @@
-const WA_NUMBER = '917000000000' // TODO: replace with India WhatsApp business number
+const WA_NUMBER = '916235353732'
 
 export default function WhatsAppButton() {
   const msg = encodeURIComponent('Hi Minarva, I have a question about your CCTV products.')

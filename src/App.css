@@ -340,3 +340,5 @@ a { text-decoration: none; color: inherit; }
   .promo-mid { display: none; }
   .promobar { padding: 8px 14px; font-size: 12px; }
 }
+
+.cat-count { max-width: 1240px; margin: 0 auto 12px; padding: 0 28px; font-size: 13px; color: var(--ink-soft); }

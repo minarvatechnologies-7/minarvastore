@@ -28,6 +28,11 @@ export default function Home({ data }) {
 
   function shopKits() { clearSearch(); setView('packages'); setActiveCat(null) }
 
+  const kitPrices = packages.map(p => Number(p.price)).filter(n => n > 0)
+  const fromPrice = kitPrices.length ? Math.min(...kitPrices) : 8999
+  const kitMrps = packages.map(p => Number(p.mrp)).filter(n => n > 0)
+  const fromMrp = kitMrps.length ? Math.min(...kitMrps) : 12999
+
   return (
     <>
       <Header
@@ -43,7 +48,7 @@ export default function Home({ data }) {
         activeCat={activeCat} setActiveCat={setActiveCat}
         clearSearch={clearSearch}
       />
-      <Hero onShopKits={shopKits} />
+      <Hero onShopKits={shopKits} fromPrice={fromPrice} fromMrp={fromMrp} />
       <FeatureStrip />
       <ProductGrid
         items={items}
