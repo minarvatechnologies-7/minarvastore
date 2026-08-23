@@ -1,27 +1,42 @@
 # Minarva Store
 
-CCTV & security e-commerce store (React + Vite + Supabase). Targets Kerala, India (INR, Paytm/COD).
+CCTV & security e-commerce storefront for Kerala (React + Vite + Supabase).
+
+**Live:** https://minarvastore.vercel.app/
+
+## Stack
+- React 18 + Vite 5
+- React Router 6
+- Supabase (catalogue, orders, enquiries, newsletter)
 
 ## Setup
-1. `npm install`
-2. Copy `.env.example` to `.env`, add your Supabase URL + anon key.
-3. In Supabase SQL Editor, run `supabase_schema.sql` (first time), then `supabase_migration.sql`.
-4. `npm run dev`
+```bash
+npm install
+cp .env.example .env   # already filled for this project
+npm run dev
+```
 
-## Deploy (Vercel)
-1. Push source to GitHub.
-2. Import to Vercel. Add `VITE_SUPABASE_URL` and `VITE_SUPABASE_ANON_KEY` env vars.
-3. `vercel.json` handles SPA routing (so /checkout etc. work on refresh).
+### Supabase
+1. Project: `vrstwzxnsztxwvsbzhfd`
+2. Run `supabase_schema.sql` then `supabase_migration.sql` in SQL Editor (first time)
+3. Optionally run `supabase_seed_extra.sql` for more sample products
+
+### Deploy (Vercel)
+- Connected to this GitHub repo
+- Set env (optional if fallbacks used):
+  - `VITE_SUPABASE_URL`
+  - `VITE_SUPABASE_ANON_KEY`
+- `vercel.json` SPA rewrites are included
 
 ## Structure
+- `src/pages/` — Home, ProductDetail, Checkout, About, Contact, FAQ
 - `src/components/` — Header, Hero, ProductCard, CartDrawer, etc.
-- `src/pages/` — Home, ProductDetail, Checkout, About, Contact
-- `src/context/CartContext.jsx` — cart + localStorage + stock checks
-- `src/lib/` — money helpers, catalogue data hook
+- `src/context/CartContext.jsx` — cart + localStorage
+- `src/lib/useCatalogue.js` — live catalogue from Supabase
 
-## TODO before launch
-- Replace PHONE in `src/components/Header.jsx` with real India number
-- Replace WA_NUMBER in `src/components/WhatsAppButton.jsx`
-- Integrate Paytm live payment (checkout currently saves order + COD shipping logic)
-- Integrate Shiprocket for live shipping rates (currently flat ₹99)
-- Build the admin panel to add real products + images
+## Before launch checklist
+- [ ] Replace phone in `Header.jsx` and `WhatsAppButton.jsx`
+- [ ] Add real product images (Supabase Storage or CDN URLs in `images` array)
+- [ ] Run extra seed / add products via SQL or admin
+- [ ] Paytm / UPI live payment (checkout currently records COD + shipping logic)
+- [ ] Shiprocket for live rates (flat ₹99 for now)

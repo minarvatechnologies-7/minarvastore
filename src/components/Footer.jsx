@@ -19,10 +19,10 @@ export default function Footer() {
         </div>
         <div className="foot-col">
           <h4>Help</h4>
+          <Link to="/faq">FAQs</Link>
           <Link to="/contact">Contact Us</Link>
-          <Link to="/contact">Shipping</Link>
-          <Link to="/contact">Returns</Link>
-          <Link to="/contact">Warranty</Link>
+          <Link to="/faq">Shipping & Returns</Link>
+          <Link to="/faq">Warranty</Link>
         </div>
         <div className="foot-col">
           <h4>Company</h4>
@@ -32,8 +32,8 @@ export default function Footer() {
         </div>
       </div>
       <div className="foot-bottom">
-        <span>© 2026 Minarva Technologies · minarva.store</span>
-        <span className="pay">VISA · Mastercard · UPI · Paytm</span>
+        <span>© 2026 Minarva Technologies · minarvastore.vercel.app</span>
+        <span className="pay">VISA · Mastercard · UPI · Paytm · COD</span>
       </div>
     </footer>
   )

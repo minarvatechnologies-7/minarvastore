@@ -316,3 +316,27 @@ a { text-decoration: none; color: inherit; }
   .checkout-summary { position: static; }
   .field-row { grid-template-columns: 1fr; }
 }
+
+/* FAQ */
+.faq-page .faq-list { max-width: 720px; margin-top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.faq-item { border: 1px solid var(--line); border-radius: 12px; background: #fff; overflow: hidden; }
+.faq-q { width: 100%; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 18px; background: none; border: none; cursor: pointer; text-align: left; font-size: 15px; font-weight: 600; color: var(--ink); }
+.faq-q:hover { background: var(--bg-soft); }
+.faq-icon { font-size: 20px; font-weight: 400; color: var(--ink-soft); flex-shrink: 0; }
+.faq-a { padding: 0 18px 16px; font-size: 14px; line-height: 1.6; color: var(--ink-soft); }
+
+/* Empty / better grid states */
+.pgrid-empty { text-align: center; padding: 48px 20px; color: var(--ink-soft); }
+.pgrid-empty h3 { color: var(--ink); margin-bottom: 8px; }
+.pgrid-empty button { margin-top: 16px; background: var(--yellow); border: none; padding: 10px 22px; border-radius: 24px; font-weight: 700; cursor: pointer; }
+
+/* Sticky header polish */
+.header { position: sticky; top: 0; z-index: 40; backdrop-filter: blur(8px); background: rgba(255,255,255,.96); }
+
+/* Cart drawer qty safety */
+@media (max-width: 720px) {
+  .header-inner { flex-wrap: wrap; gap: 12px; padding: 12px 16px; }
+  .searchbox { order: 3; max-width: none; width: 100%; }
+  .promo-mid { display: none; }
+  .promobar { padding: 8px 14px; font-size: 12px; }
+}
